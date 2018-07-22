@@ -14,9 +14,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { BusinessServiceService } from './business-service.service';
 
- // Initialize Firebase
- const firebaseConfig = {
+// Initialize Firebase
+const firebaseConfig = {
   apiKey: 'AIzaSyCwxA5e4Wew-gAZNLNtXQDAjWlwlAQqs7w',
   authDomain: 'businessadmin-95d66.firebaseapp.com',
   databaseURL: 'https://businessadmin-95d66.firebaseio.com',
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [BusinessServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
