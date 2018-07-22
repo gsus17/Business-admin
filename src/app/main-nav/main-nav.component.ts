@@ -20,6 +20,11 @@ export class MainNavComponent {
     private breakpointObserver: BreakpointObserver,
     private router: Router) { }
 
+  /**
+   * Redirect to business-form view.
+   * @param {string} businessId
+   * @memberof MainNavComponent
+   */
   public goToCreateBusiness(businessId: string) {
     console.log(`${MainNavComponent.name}::goToCreateBusiness`);
 

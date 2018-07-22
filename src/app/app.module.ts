@@ -15,6 +15,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { BusinessServiceService } from './business-service.service';
+import { appRoutes } from './app-routes-config';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -25,13 +26,6 @@ const firebaseConfig = {
   storageBucket: 'businessadmin-95d66.appspot.com',
   messagingSenderId: '284680327923'
 };
-
-const appRoutes: Routes = [
-  { path: '', component: BusinessListComponent },
-  { path: 'business-list', component: BusinessListComponent },
-  { path: 'business-detail/:id', component: BusinessDetailComponent },
-  { path: 'business-form', component: BusinessFormComponent }
-];
 
 @NgModule({
   declarations: [

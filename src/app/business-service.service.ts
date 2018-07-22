@@ -9,12 +9,25 @@ export class BusinessServiceService {
 
   constructor(private afDb: AngularFireDatabase) { }
 
+  /**
+   * Create a business.
+   * @param {Business} business
+   * @returns {Promise<any>}
+   * @memberof BusinessServiceService
+   */
   public createBusiness(business: Business): Promise<any> {
     console.log(`${BusinessServiceService.name}::createBusiness`);
 
     const businessToSave: Business = this.prepareBusinessToSave(business);
     return this.afDb.database.ref(`business/${businessToSave.id}`).set(businessToSave);
   }
+
+  /**
+   * Update a business.
+   * @param {Business} business
+   * @returns {Promise<any>}
+   * @memberof BusinessServiceService
+   */
   public updateBusiness(business: Business): Promise<any> {
     console.log(`${BusinessServiceService.name}::updateBusiness`);
 
@@ -22,17 +35,34 @@ export class BusinessServiceService {
     return this.afDb.database.ref(`business/${businessToSave.id}`).update(businessToSave);
   }
 
+  /**
+   * Return all businnes.
+   * @returns {*}
+   * @memberof BusinessServiceService
+   */
   public getBusinessList(): any {
     console.log(`${BusinessServiceService.name}::getBusinessList`);
 
     return this.afDb.list('business/');
   }
 
+  /**
+   * Delete a business by id.
+   * @param {string} businessId
+   * @returns {Promise<any>}
+   * @memberof BusinessServiceService
+   */
   public deleteBusiness(businessId: string): Promise<any> {
     console.log(`${BusinessServiceService.name}::deleteBusiness`);
     return this.afDb.database.ref(`business`).child(businessId).remove();
   }
 
+  /**
+   * Return a business by id.
+   * @param {number} businessId
+   * @returns {Promise<any>}
+   * @memberof BusinessServiceService
+   */
   public getBusinesById(businessId: number): Promise<any> {
 
     const promise = new Promise((resolve, reject) => {
@@ -49,6 +79,13 @@ export class BusinessServiceService {
     return promise;
   }
 
+  /**
+   * Map to required entity to save.
+   * @private
+   * @param {Business} business
+   * @returns {Business}
+   * @memberof BusinessServiceService
+   */
   private prepareBusinessToSave(business: Business): Business {
     business = {
       ...business,
@@ -59,11 +96,23 @@ export class BusinessServiceService {
     return business;
   }
 
+  /**
+   * Generate a random id.
+   * @private
+   * @returns {number}
+   * @memberof BusinessServiceService
+   */
   private generateBusinessId(): number {
     const id = Math.round(Math.random());
     return id;
   }
 
+  /**
+   * Register date.
+   * @private
+   * @returns {Date}
+   * @memberof BusinessServiceService
+   */
   private registerDate(): Date {
     return new Date();
   }

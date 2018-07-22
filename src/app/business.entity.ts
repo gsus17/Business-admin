@@ -1,3 +1,8 @@
+/**
+ * Business entity.
+ * @export
+ * @interface Business
+ */
 export interface Business {
     id: number;
     name: string;

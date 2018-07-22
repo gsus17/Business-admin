@@ -17,18 +17,53 @@ export class BusinessFormComponent implements OnInit {
   public jobs = new FormControl();
   public snetwork = new FormControl();
 
+  /**
+   * Tecnologies list.
+   * @type {string[]}
+   * @memberof BusinessFormComponent
+   */
   public tecnologiesList: string[] = ['Angular', 'React', 'VueJs', 'Node', 'Sql', 'Jquery'];
 
+  /**
+   * Category list.
+   * @type {string[]}
+   * @memberof BusinessFormComponent
+   */
   public categoryList: string[] = ['Consulting', 'Sales', 'Gaming', 'Mobile', 'Web'];
 
+  /**
+   * Jobs list.
+   * @type {string[]}
+   * @memberof BusinessFormComponent
+   */
   public jobsList: string[] = ['FrontEnd', 'Backend', 'Ui Designer', 'Community Manager', 'PM'];
 
+  /**
+   * Social network list.
+   * @type {string[]}
+   * @memberof BusinessFormComponent
+   */
   public snetworkList: string[] = ['Facebook', 'Twitter', 'Instagram'];
 
+  /**
+   * Business form model.
+   * @type {Business}
+   * @memberof BusinessFormComponent
+   */
   public model: Business;
 
+  /**
+   * Business id.
+   * @type {*}
+   * @memberof BusinessFormComponent
+   */
   public businessId: any;
 
+  /**
+   * Type form.
+   * @type {*}
+   * @memberof BusinessFormComponent
+   */
   public typeForm: any;
 
   constructor(
@@ -54,6 +89,10 @@ export class BusinessFormComponent implements OnInit {
       });
   }
 
+  /**
+   * Create a new business.
+   * @memberof BusinessFormComponent
+   */
   public createBusiness() {
     console.log(`${BusinessFormComponent.name}::createBusiness`);
 
@@ -65,6 +104,10 @@ export class BusinessFormComponent implements OnInit {
       });
   }
 
+  /**
+   * Update business.
+   * @memberof BusinessFormComponent
+   */
   public updateBusiness() {
     console.log(`${BusinessFormComponent.name}::updateBusiness`);
 
@@ -77,10 +120,20 @@ export class BusinessFormComponent implements OnInit {
       });
   }
 
+  /**
+   * Return the type form.
+   * @returns
+   * @memberof BusinessFormComponent
+   */
   public isEditForm() {
     return this.typeForm;
   }
 
+  /**
+   * Go to default view.
+   * @private
+   * @memberof BusinessFormComponent
+   */
   private redirecctionProcess(): void {
     setTimeout(
       () => {
@@ -88,12 +141,25 @@ export class BusinessFormComponent implements OnInit {
       }, 300);
   }
 
+  /**
+   * Open snack bar.
+   * @private
+   * @param {string} message
+   * @param {string} action
+   * @memberof BusinessFormComponent
+   */
   private openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 2000,
     });
   }
 
+  /**
+   * Return business detail.
+   * @private
+   * @param {string} businessId
+   * @memberof BusinessFormComponent
+   */
   private getBusinessDetail(businessId: string) {
     // tslint:disable-next-line:radix
     const bs: number = parseInt(businessId);
@@ -113,9 +179,13 @@ export class BusinessFormComponent implements OnInit {
           webside: business.webside
         };
       });
-
   }
 
+  /**
+   * Reset component model.
+   * @private
+   * @memberof BusinessFormComponent
+   */
   private resetModel() {
     this.model = {
       id: null,

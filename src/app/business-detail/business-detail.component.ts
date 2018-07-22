@@ -10,6 +10,11 @@ import { Business } from '../business.entity';
 })
 export class BusinessDetailComponent implements OnInit {
 
+  /**
+   * Business detail model view.
+   * @type {ModelBusinessDetail}
+   * @memberof BusinessDetailComponent
+   */
   public model: ModelBusinessDetail;
 
   constructor(
@@ -26,18 +31,26 @@ export class BusinessDetailComponent implements OnInit {
     };
 
     this.getBusinessDetail();
-
   }
 
+  /**
+   * Return business detail.
+   * @private
+   * @memberof BusinessDetailComponent
+   */
   private getBusinessDetail() {
     this.businessService.getBusinesById(this.model.businessId)
       .then((business: Business) => {
         this.model.business = business;
         this.model.loadData = true;
       });
-
   }
 
+  /**
+   * Return business img.
+   * @returns {string}
+   * @memberof BusinessDetailComponent
+   */
   public getBusinessImg(): string {
     // tslint:disable-next-line:max-line-length
     const businessImg = this.model.business != null && this.model.business.img !== '' && this.model.business.img !== null ? this.model.business.img : 'assets/images/no-available-image.png';
@@ -46,7 +59,11 @@ export class BusinessDetailComponent implements OnInit {
 
 }
 
-
+/**
+ * Business detail model.
+ * @export
+ * @interface ModelBusinessDetail
+ */
 export interface ModelBusinessDetail {
   business: Business;
   businessId: number;
