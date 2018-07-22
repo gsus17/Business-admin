@@ -15,7 +15,9 @@ import { MatInputModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
@@ -32,7 +34,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatExpansionModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -48,7 +51,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatExpansionModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }

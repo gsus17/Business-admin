@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BusinessServiceService } from '../business-service.service';
+import { Business } from '../business.entity';
 
 @Component({
   selector: 'app-business-detail',
@@ -8,15 +10,42 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BusinessDetailComponent implements OnInit {
 
-  private businessId: string = null;
+  public model: ModelBusinessDetail;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private businessService: BusinessServiceService) { }
 
   ngOnInit() {
 
-    this.businessId = this.route.snapshot.params['id'];
-    console.log(this.businessId);
+    this.model = {
+      business: null,
+      loadData: false,
+      // tslint:disable-next-line:radix
+      businessId: parseInt(this.route.snapshot.params['id'])
+    };
+
+    this.getBusinessDetail();
 
   }
 
+  private getBusinessDetail() {
+
+
+    this.businessService.getBusinessList()
+      .valueChanges()
+      .subscribe((business: Business[]) => {
+        const businessFilteredList: Business[] = business.filter((item: Business) => item.id === this.model.businessId);
+        this.model.business = businessFilteredList[0];
+        this.model.loadData = true;
+      });
+  }
+
+}
+
+
+export interface ModelBusinessDetail {
+  business: Business;
+  businessId: number;
+  loadData: boolean;
 }

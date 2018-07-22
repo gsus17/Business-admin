@@ -1,12 +1,16 @@
 .business-create-container {
-    padding: 8px;
-  }
+  padding: 8px;
+}
 
-  .example-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .example-container > * {
-    width: 100%;
-  }
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container>* {
+  width: 100%;
+}
+
+.create-business-button {
+  padding-top: 16px;
+}
