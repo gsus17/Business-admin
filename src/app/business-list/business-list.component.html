@@ -1,0 +1,6 @@
+<div class="business-list-container">
+  <mat-card>
+    <mat-card-title>Business list</mat-card-title>
+    <app-business-card  *ngFor="let business of businessList" [business]="business" routerLink="/business-detail/{{business.id}}"></app-business-card>
+  </mat-card>
+</div>

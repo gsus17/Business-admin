@@ -1,0 +1,106 @@
+<div class="business-create-container">
+  <mat-card>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Business data
+          </mat-panel-title>
+          <mat-panel-description>
+            Type your general data
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <mat-form-field>
+            <input matInput placeholder="Business Name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="City">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Address">
+          </mat-form-field>
+        </div>
+
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Business description
+          </mat-panel-title>
+          <mat-panel-description>
+            Type the company description
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+          <textarea matInput placeholder="Textarea"></textarea>
+        </mat-form-field>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Jobs
+          </mat-panel-title>
+          <mat-panel-description>
+            Type the jobs what you to research
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <mat-form-field>
+            <mat-select placeholder="Jobs" [formControl]="jobs" multiple>
+              <mat-option *ngFor="let jobs of jobsList" [value]="jobs">{{jobs}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Tecnologies
+          </mat-panel-title>
+          <mat-panel-description>
+            Type the tecnologies of jobs what you to research
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <mat-form-field>
+            <mat-select placeholder="Toppings" [formControl]="toppings" multiple>
+              <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Social network
+          </mat-panel-title>
+          <mat-panel-description>
+            Type the tecnologies of jobs what you to research
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-form-field>
+              <mat-select placeholder="Social network" [formControl]="snetwork" multiple>
+                <mat-option *ngFor="let snetwork of snetworkList" [value]="snetwork">{{snetwork}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <mat-form-field>
+            <input matInput placeholder="Twitter">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Webside">
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card>
+</div>

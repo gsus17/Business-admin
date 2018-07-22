@@ -1,1 +1,5 @@
-<mat-card>Simple card</mat-card>
+<mat-card fxLayout="row" fxLayoutAlign="space-between center">
+  <img class="business-logo" [src]="business.img">
+  <div>{{business.name}}</div>
+  <div>{{business.category}}</div>
+</mat-card>
