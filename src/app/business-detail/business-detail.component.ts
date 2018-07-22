@@ -30,15 +30,12 @@ export class BusinessDetailComponent implements OnInit {
   }
 
   private getBusinessDetail() {
-
-
-    this.businessService.getBusinessList()
-      .valueChanges()
-      .subscribe((business: Business[]) => {
-        const businessFilteredList: Business[] = business.filter((item: Business) => item.id === this.model.businessId);
-        this.model.business = businessFilteredList[0];
+    this.businessService.getBusinesById(this.model.businessId)
+      .then((business: Business) => {
+        this.model.business = business;
         this.model.loadData = true;
       });
+
   }
 
   public getBusinessImg(): string {

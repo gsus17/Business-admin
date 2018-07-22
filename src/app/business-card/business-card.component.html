@@ -1,14 +1,14 @@
 <mat-card fxLayout="row" fxLayoutAlign="space-between center">
-  <div fxLayout="row" fxFlex="80" fxLayoutAlign="space-between center">
+  <div fxLayout="row" fxFlex="80" fxLayoutAlign="space-between center" routerLink="/business-detail/{{business.id}}">
     <img class="business-logo" [src]="getBusinessImg()">
     <div>{{business.name}}</div>
     <div>{{business.category}}</div>
   </div>
   <div fxLayout="row" fxFlex="10" fxLayoutAlign="space-between center">
-    <i class="material-icons">
+    <i class="material-icons" (click)="editBusiness(business.id)">
       edit
     </i>
-    <i class="material-icons">
+    <i class="material-icons" (click)="deleteBusiness(business.id)">
       delete_forever
     </i>
   </div>

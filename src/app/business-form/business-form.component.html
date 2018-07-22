@@ -22,8 +22,8 @@
 
           <mat-form-field>
             <mat-select placeholder="Category" [formControl]="category" [(ngModel)]="model.category">
-                <mat-option *ngFor="let category of categoryList" [value]="category">{{category}}</mat-option>
-              </mat-select>
+              <mat-option *ngFor="let category of categoryList" [value]="category">{{category}}</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
 
@@ -95,18 +95,17 @@
           </div>
 
           <mat-form-field>
-            <input matInput placeholder="Twitter">
-          </mat-form-field>
-
-          <mat-form-field>
             <input matInput placeholder="Webside" [(ngModel)]="model.webside">
           </mat-form-field>
         </div>
       </mat-expansion-panel>
     </mat-accordion>
 
-    <div class="create-business-button" fxLayout="row" fxLayoutAlign="end center">
+    <div *ngIf=!(isEditForm()) class="create-business-button" fxLayout="row" fxLayoutAlign="end center">
       <button mat-raised-button color="primary" (click)="createBusiness()">Create new business</button>
+    </div>
+    <div *ngIf=(isEditForm()) class="create-business-button" fxLayout="row" fxLayoutAlign="end center">
+      <button mat-raised-button color="primary" (click)="updateBusiness()">Update business</button>
     </div>
   </mat-card>
 </div>

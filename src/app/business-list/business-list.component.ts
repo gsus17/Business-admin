@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router } from '@angular/router';
 import { BusinessServiceService } from '../business-service.service';
 import { Business } from '../business.entity';
 
@@ -24,15 +24,18 @@ export class BusinessListComponent implements OnInit {
     this.getBusinessList();
   }
 
-  /**
-   * name
-   */
-  public goToDetail(businessId: string) {
 
-    this.router.navigate([`business-detail:id`], { queryParams: { id: businessId } });
+  public editBusiness(businessId: string) {
+    console.log(`${BusinessListComponent.name}::editBusiness`);
+    this.router.navigate([`business-form`], { queryParams: { id: businessId, edit: true } });
+  }
+  public deleteBusiness(businessId: string) {
+    console.log(`${BusinessListComponent.name}::deleteBusiness businessId %o`, businessId);
+    this.businessService.deleteBusiness(businessId);
   }
 
   private getBusinessList() {
+    console.log(`${BusinessListComponent.name}::getBusinessList`);
     this.businessService.getBusinessList()
       .valueChanges()
       .subscribe((business: Business[]) => {

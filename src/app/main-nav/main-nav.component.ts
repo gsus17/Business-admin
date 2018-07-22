@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-main-nav',
@@ -14,5 +16,14 @@ export class MainNavComponent {
     .pipe(
       map(result => result.matches)
     );
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private router: Router) { }
+
+  public goToCreateBusiness(businessId: string) {
+    console.log(`${MainNavComponent.name}::goToCreateBusiness`);
+
+    this.router.navigate([`business-form`], { queryParams: { id: null, edit: false } });
   }
+
+}

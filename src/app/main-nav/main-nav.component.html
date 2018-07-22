@@ -3,9 +3,8 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/business-create">Create a new business</a>
       <a mat-list-item routerLink="/business-list">Business list</a>
-      <a mat-list-item href="#">Logout</a>
+      <a mat-list-item (click)="goToCreateBusiness()">Create a new business</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -14,6 +13,7 @@
         <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
+        <span>Business admin</span>
         <span class="example-spacer"></span>
         <mat-icon class="example-icon">account_circle</mat-icon>
       </mat-toolbar-row>
