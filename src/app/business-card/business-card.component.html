@@ -1,5 +1,15 @@
 <mat-card fxLayout="row" fxLayoutAlign="space-between center">
-  <img class="business-logo" [src]="business.img">
-  <div>{{business.name}}</div>
-  <div>{{business.category}}</div>
+  <div fxLayout="row" fxFlex="80" fxLayoutAlign="space-between center">
+    <img class="business-logo" [src]="business.img">
+    <div>{{business.name}}</div>
+    <div>{{business.category}}</div>
+  </div>
+  <div fxLayout="row" fxFlex="10" fxLayoutAlign="space-between center">
+    <i class="material-icons">
+      edit
+    </i>
+    <i class="material-icons">
+      delete_forever
+    </i>
+  </div>
 </mat-card>
