@@ -37,10 +37,17 @@
             Type the company description
           </mat-panel-description>
         </mat-expansion-panel-header>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <mat-form-field>
+            <textarea matInput placeholder="Textarea" [(ngModel)]="model.description"></textarea>
+          </mat-form-field>
+          <!-- <button mat-raised-button color="primary" (click)="fileInput.click()" type="file">
+            <mat-icon class="example-icon">library_add</mat-icon>
+            <span>Select a logo</span>
+            <input #fileInput type="file" [(ngModel)]="model.img" style="display:none;" />
+          </button> -->
+        </div>
 
-        <mat-form-field>
-          <textarea matInput placeholder="Textarea" [(ngModel)]="model.description"></textarea>
-        </mat-form-field>
       </mat-expansion-panel>
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>

@@ -9,3 +9,9 @@
 .simple-container {
   padding: 8px;
 }
+
+.class-label {
+  font-style: italic;
+  font-size: 14px;
+  font-weight: bold;
+}

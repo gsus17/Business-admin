@@ -8,35 +8,44 @@
           <div>{{model.business.name}}</div>
         </div>
         <div fxLayout="row" fxFlex="80" fxLayoutAlign="end center">
-          <div>{{model.business.category}}</div>
+          <div>
+            <span class="class-label">Category: </span>
+            {{model.business.category}}</div>
         </div>
       </div>
 
       <div class="simple-container" fxLayout="row" fxLayoutAlign="space-between center">
         <div fxLayout="row" fxFlex="20" fxLayoutAlign="space-between center">
-          <div>{{model.business.description}}</div>
+          <div>
+            <span class="class-label">Description: </span>
+            {{model.business.description}}</div>
         </div>
         <div fxLayout="row" fxFlex="80" fxLayoutAlign="end center">
-          <div>{{model.business.city}}</div>
+          <div>
+            <span class="class-label">City: </span>
+            {{model.business.city}}</div>
         </div>
       </div>
 
       <div class="simple-container" fxLayout="row" fxLayoutAlign="space-between center">
         <div fxLayout="row" fxFlex="20" fxLayoutAlign="space-between center">
+          <span class="class-label">Jobs: </span>
           <div *ngFor="let jobs of model.business.jobs">{{jobs}}</div>
         </div>
         <div fxLayout="row" fxFlex="80" fxLayoutAlign="end center">
+          <span class="class-label">Tecnologies: </span>
           <div *ngFor="let tecnologie of model.business.tecnologies">{{tecnologie}}</div>
         </div>
       </div>
 
-
       <div class="simple-container" fxLayout="row" fxLayoutAlign="space-between center">
         <div fxLayout="row" fxFlex="20" fxLayoutAlign="space-between center">
+          <span class="class-label">Social network: </span>
           <div *ngFor="let socialNetwork of model.business.socialNetwork">{{socialNetwork}}</div>
         </div>
         <div fxLayout="row" fxFlex="80" fxLayoutAlign="end center">
-          <div>{{model.business.webside}}</div>
+          <div>
+            <span class="class-label">Webside: </span> {{model.business.webside}}</div>
         </div>
       </div>
 
