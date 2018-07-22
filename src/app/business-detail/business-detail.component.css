@@ -1,3 +1,11 @@
 .business-detail-container {
-    padding: 8px;
-  }
+  padding: 8px;
+}
+
+.business-logo {
+  max-width: 90px;
+}
+
+.simple-container {
+  padding: 8px;
+}

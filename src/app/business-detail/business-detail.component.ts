@@ -41,6 +41,12 @@ export class BusinessDetailComponent implements OnInit {
       });
   }
 
+  public getBusinessImg(): string {
+    // tslint:disable-next-line:max-line-length
+    const businessImg = this.model.business != null && this.model.business.img !== '' && this.model.business.img !== null ? this.model.business.img : 'assets/images/no-available-image.png';
+    return businessImg;
+  }
+
 }
 
 

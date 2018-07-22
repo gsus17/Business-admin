@@ -1,6 +1,6 @@
 <mat-card fxLayout="row" fxLayoutAlign="space-between center">
   <div fxLayout="row" fxFlex="80" fxLayoutAlign="space-between center">
-    <img class="business-logo" [src]="business.img">
+    <img class="business-logo" [src]="getBusinessImg()">
     <div>{{business.name}}</div>
     <div>{{business.category}}</div>
   </div>
