@@ -57,14 +57,14 @@ export class BusinessFormComponent implements OnInit {
    * @type {*}
    * @memberof BusinessFormComponent
    */
-  public businessId: any;
+  public businessId: any = null;
 
   /**
    * Type form.
    * @type {*}
    * @memberof BusinessFormComponent
    */
-  public typeForm: any;
+  public typeForm: any = false;
 
   constructor(
     private businessServiceService: BusinessServiceService,
@@ -126,7 +126,7 @@ export class BusinessFormComponent implements OnInit {
    * @memberof BusinessFormComponent
    */
   public isEditForm() {
-    return this.typeForm;
+    return this.typeForm === 'true';
   }
 
   /**

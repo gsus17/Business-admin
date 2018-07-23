@@ -108,10 +108,10 @@
           </div>
         </mat-expansion-panel>
       </mat-accordion>
-      <div *ngIf=!(isEditForm()) class="create-business-button" fxLayout="row" fxLayoutAlign="end center">
+      <div *ngIf="!isEditForm()" class="create-business-button" fxLayout="row" fxLayoutAlign="end center">
         <button mat-raised-button color="primary" [disabled]="businessForm.invalid" (click)="createBusiness()">Create new business</button>
       </div>
-      <div *ngIf=(isEditForm()) class="create-business-button" fxLayout="row" fxLayoutAlign="end center">
+      <div *ngIf="isEditForm()" class="create-business-button" fxLayout="row" fxLayoutAlign="end center">
         <button mat-raised-button color="primary" [disabled]="businessForm.invalid" (click)="updateBusiness()">Update business</button>
       </div>
     </form>
