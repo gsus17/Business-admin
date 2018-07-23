@@ -1,118 +1,120 @@
 <div class="business-create-container">
   <mat-card>
-    <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Business data
-          </mat-panel-title>
-          <mat-panel-description>
-            Type your general data
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+    <form #businessForm="ngForm">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Business data
+            </mat-panel-title>
+            <mat-panel-description>
+              Type your general data
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <mat-form-field>
-            <input matInput placeholder="Business Name" [(ngModel)]="model.name">
-          </mat-form-field>
-
-          <mat-form-field>
-            <input matInput placeholder="City" [(ngModel)]="model.city">
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-select placeholder="Category" [formControl]="category" [(ngModel)]="model.category">
-              <mat-option *ngFor="let category of categoryList" [value]="category">{{category}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-      </mat-expansion-panel>
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Business description
-          </mat-panel-title>
-          <mat-panel-description>
-            Type the company description
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <mat-form-field>
-            <textarea matInput placeholder="Textarea" [(ngModel)]="model.description"></textarea>
-          </mat-form-field>
-          <!-- <button mat-raised-button color="primary" (click)="fileInput.click()" type="file">
-            <mat-icon class="example-icon">library_add</mat-icon>
-            <span>Select a logo</span>
-            <input #fileInput type="file" [(ngModel)]="model.img" style="display:none;" />
-          </button> -->
-        </div>
-
-      </mat-expansion-panel>
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Jobs
-          </mat-panel-title>
-          <mat-panel-description>
-            Type the jobs what you to research
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <mat-form-field>
-            <mat-select placeholder="Jobs" [formControl]="jobs" multiple [(ngModel)]="model.jobs">
-              <mat-option *ngFor="let jobs of jobsList" [value]="jobs">{{jobs}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </mat-expansion-panel>
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Tecnologies
-          </mat-panel-title>
-          <mat-panel-description>
-            Type the tecnologies of jobs what you to research
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-          <mat-form-field>
-            <mat-select placeholder="Tecnologies" [formControl]="tecnologies" multiple [(ngModel)]="model.tecnologies">
-              <mat-option *ngFor="let tecnologies of tecnologiesList" [value]="tecnologies">{{tecnologies}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </mat-expansion-panel>
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Social network
-          </mat-panel-title>
-          <mat-panel-description>
-            Type the tecnologies of jobs what you to research
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
           <div fxLayout="row" fxLayoutAlign="space-between center">
             <mat-form-field>
-              <mat-select placeholder="Social network" [formControl]="snetwork" multiple [(ngModel)]="model.socialNetwork">
-                <mat-option *ngFor="let snetwork of snetworkList" [value]="snetwork">{{snetwork}}</mat-option>
+              <input matInput name="name" placeholder="Business Name" [(ngModel)]="model.name" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput name="city" placeholder="City" [(ngModel)]="model.city" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Category" name="category" [formControl]="category" [(ngModel)]="model.category" required>
+                <mat-option *ngFor="let category of categoryList" [value]="category">{{category}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
 
-          <mat-form-field>
-            <input matInput placeholder="Webside" [(ngModel)]="model.webside">
-          </mat-form-field>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Business description
+            </mat-panel-title>
+            <mat-panel-description>
+              Type the company description
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-form-field>
+              <textarea matInput placeholder="Description" name="description" [(ngModel)]="model.description" required></textarea>
+            </mat-form-field>
+            <!-- <button mat-raised-button color="primary" (click)="fileInput.click()" type="file">
+                  <mat-icon class="example-icon">library_add</mat-icon>
+                  <span>Select a logo</span>
+                  <input #fileInput type="file" [(ngModel)]="model.img" style="display:none;" />
+                </button> -->
+          </div>
 
-    <div *ngIf=!(isEditForm()) class="create-business-button" fxLayout="row" fxLayoutAlign="end center">
-      <button mat-raised-button color="primary" (click)="createBusiness()">Create new business</button>
-    </div>
-    <div *ngIf=(isEditForm()) class="create-business-button" fxLayout="row" fxLayoutAlign="end center">
-      <button mat-raised-button color="primary" (click)="updateBusiness()">Update business</button>
-    </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Jobs
+            </mat-panel-title>
+            <mat-panel-description>
+              Type the jobs what you to research
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-form-field>
+              <mat-select placeholder="Jobs" name="jobs" [formControl]="jobs" multiple [(ngModel)]="model.jobs" required>
+                <mat-option *ngFor="let jobs of jobsList" [value]="jobs">{{jobs}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Tecnologies
+            </mat-panel-title>
+            <mat-panel-description>
+              Type the tecnologies of jobs what you to research
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-form-field>
+              <mat-select placeholder="Tecnologies" [formControl]="tecnologies" name="tecnologies" multiple [(ngModel)]="model.tecnologies" required>
+                <mat-option *ngFor="let tecnologies of tecnologiesList" [value]="tecnologies">{{tecnologies}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Social network
+            </mat-panel-title>
+            <mat-panel-description>
+              Type the tecnologies of jobs what you to research
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <mat-form-field>
+                <mat-select placeholder="Social network" [formControl]="snetwork" name="socialNetwork" multiple [(ngModel)]="model.socialNetwork" required>
+                  <mat-option *ngFor="let snetwork of snetworkList" [value]="snetwork">{{snetwork}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <mat-form-field>
+              <input matInput placeholder="Webside" name="webside" [(ngModel)]="model.webside" required>
+            </mat-form-field>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <div *ngIf=!(isEditForm()) class="create-business-button" fxLayout="row" fxLayoutAlign="end center">
+        <button mat-raised-button color="primary" [disabled]="businessForm.invalid" (click)="createBusiness()">Create new business</button>
+      </div>
+      <div *ngIf=(isEditForm()) class="create-business-button" fxLayout="row" fxLayoutAlign="end center">
+        <button mat-raised-button color="primary" [disabled]="businessForm.invalid" (click)="updateBusiness()">Update business</button>
+      </div>
+    </form>
+
   </mat-card>
 </div>
